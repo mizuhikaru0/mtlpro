@@ -1,0 +1,527 @@
+/* Variabel Warna dan Tema */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --gradient-start: #3498db;
+  --gradient-end: #2980b9;
+}
+body.dark-theme {
+  --primary-color: #ecf0f1;
+  --secondary-color: #2980b9;
+  --accent-color: #c0392b;
+  --text-color: #ecf0f1;
+  --bg-color: #2c3e50;
+  --gradient-start: #2980b9;
+  --gradient-end: #2471a3;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+body.dark-theme .header {
+  background: #1f2c39;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: var(--box-shadow);
+}
+
+body.dark-theme .footer {
+  background: #1f2c39;
+}
+
+/* Kontainer Utama */
+.main-content {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Translator Container */
+.translator-container {
+  background: #fff;
+  width: 110%;
+  max-width: 1200px;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 0 auto;
+}
+body.dark-theme .translator-container {
+  background: #34495e;
+}
+
+/* Judul */
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+/* Tombol */
+.btn {
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Selector Bahasa */
+.language-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+select {
+  padding: 0.7rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+  margin: 0 0.5rem;
+}
+select:focus {
+  border-color: var(--secondary-color);
+}
+
+/* Textarea & Text Box */
+.text-box {
+  margin: 1.5rem 0;
+  position: relative;
+}
+/* Textarea lebih kecil tetapi bisa diatur ukurannya */
+textarea {
+  width: 100%;
+  min-height: 80px; /* Ukuran awal lebih kecil */
+  height: auto; /* Tidak otomatis membesar */
+  max-height: 300px; /* Batas maksimal tinggi */
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  resize: vertical; /* Pengguna bisa mengubah tinggi secara manual */
+  transition: var(--transition);
+  background: #fff;
+}
+
+body.dark-theme textarea {
+  background: #3d566e;
+  border-color: #5a7381;
+  color: #ecf0f1;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: var(--box-shadow);
+}
+
+/* Tombol di dalam textarea */
+/* Tombol di dalam textarea */
+.clear-btn,
+.text-box .copy-btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.clear-btn {
+  top: 10px;
+  right: 10px;
+  color: var(--accent-color);
+}
+
+.text-box {
+  position: relative;
+}
+
+.text-box .copy-btn {
+  bottom: 10px;
+  right: 10px;
+  color: var(--secondary-color);
+  font-size: 1.2rem; /* Menyesuaikan ukuran agar tidak terlalu besar */
+}
+
+.text-box .copy-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #eee;
+  margin: 0.5rem 0;
+  display: none;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+.progress {
+  height: 100%;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+/* Riwayat Terjemahan */
+.history {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 1rem;
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.history-item {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: var(--bg-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-item:hover {
+  transform: translateX(5px);
+  background: rgba(52,73,94,0.1);
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+/* Notifikasi Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  background: var(--secondary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  display: none;
+  animation: fadeIn 0.5s;
+  z-index: 1000;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tombol Ganti Tema */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  z-index: 1001;
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .header, .footer { font-size: 1.2rem; padding: 0.8rem; }
+}
+/* Posisi Tengah untuk Glosarium */
+.toggle-glossary-panel,
+.glossary-options {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Tombol Minimalis untuk Glosarium */
+.btn-minimal {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-minimal:hover {
+  color: var(--secondary-color);
+}
+
+/* Tampilan header daftar glosarium dan tombol reset */
+.glossary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.glossary-reset {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.glossary-reset:hover {
+  color: var(--accent-color);
+}
+
+/* Modal Glosarium */
+.modal {
+  display: none; /* Tersembunyi secara default */
+  position: fixed;
+  z-index: 1002; /* Pastikan berada di atas elemen lain */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Latar belakang semi-transparan */
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid var(--secondary-color);
+  width: 90%;
+  max-width: 500px;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+.close {
+  color: var(--text-color);
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--accent-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling untuk informasi "Powered by Google Translate" */
+footer .powered-by {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+footer .powered-by a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .powered-by a:hover {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+/* Modal Konfirmasi Mengambang */
+.confirm-modal {
+  display: none; /* Tersembunyi secara default */
+  position: fixed;
+  z-index: 1003; /* Di atas modal lainnya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Latar belakang semi-transparan */
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.confirm-content {
+  background-color: var(--bg-color);
+  padding: 20px;
+  border: 1px solid var(--secondary-color);
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.confirm-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm-buttons .btn {
+  width: 45%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Modal Edit Glosarium Mengambang */
+.edit-glossary-modal {
+  display: none; /* Tersembunyi secara default */
+  position: fixed;
+  z-index: 1004; /* Di atas modal lainnya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Latar belakang semi-transparan */
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.edit-glossary-content {
+  background-color: var(--bg-color);
+  padding: 20px;
+  border: 1px solid var(--secondary-color);
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.edit-glossary-content p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.edit-glossary-content input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.edit-glossary-content input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.edit-glossary-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-glossary-buttons .btn {
+  width: 45%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
